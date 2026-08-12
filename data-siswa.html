@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    
     <!-- style -->
     <style>
 
@@ -50,9 +51,7 @@
             border-radius: 15px;
             background-color: purple;
             transition: ease-out 300ms;
-            
         }
-
 
         .tombol-sidebar{
             list-style: none;
@@ -87,12 +86,46 @@
         /* main */
         main{
             margin-left: 300px;
-            min-width: 80%;       /* Sama dengan lebar sidebar */
+            min-width: 80%; 
             padding: 20px;
             flex: 1;
         }
-    </style>
 
+        .container-table{
+            border: 1px solid;
+            padding: 2vh;
+            border-radius: 15px;
+            min-height: 1px;
+        }
+
+        .tablenya th, .tablenya td{
+            border: 1px solid;
+            padding: 1.5vh;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        /* tombol */
+        .btn{
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+
+            border: 1px solid;
+            border-radius: 15px;
+            padding: 2vh 22vh;
+            
+            background-color: black;
+            color: white;
+        }
+
+        .tombol-container{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6vh;
+            margin: 2vh;
+        }
+    </style>
 
 </head>
 <body>
@@ -110,23 +143,219 @@
      </div>
 
      <!-- main -->
-      <main>
-        <h1 style="margin-bottom: 10vh;">Data siswa</h1>
+      <main>    
+        <h1 style="margin-bottom: 5vh;">Data siswa</h1>
         <!-- table -->
-        <table border="1px" cellspacing="0" style="width: 100%;">
-            <tr>
-                <th>hallo</th>
-                <th>hallo</th>
-                <th>hallo</th>
-                <th>hallo</th>
-            </tr>
-            <tr>
-                <td>dah</td>
-                <td>dah</td>
-                <td>dah</td>
-                <td>dah</td>
-            </tr>
-        </table>
+         <div class="container-table">
+
+             <div class="tablenya" style="overflow: auto; max-height: 60vh">
+                 <table style="overflow: auto; width: 100%;" cellpadding="0" cellspacing="20">
+                     <thead>
+                         <tr>
+                             <th>No</th>
+                             <th>NIS</th>
+                             <th>Nama Siswa</th>
+                             <th>Jenis Kelamin</th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                         <tr>
+                             <td>1</td>
+                             <td>201000963</td>
+                             <td>ABDUL AZIS</td>
+                             <td>Laki - laki</td>
+                         </tr>
+                         <tr>
+                             <td>2</td>
+                             <td>201000965</td>
+                             <td>ABDURRAHMAN</td>
+                             <td>Laki - laki</td>
+                         </tr>
+                         <tr>
+                             <td>3</td>
+                             <td>201000966</td>
+                             <td>ADAM RIFKA AKMAL</td>
+                             <td>Laki - laki</td>
+                         </tr>
+                         <tr>
+                             <td>4</td>
+                             <td>201000970</td>
+                             <td>ANISA FITRI</td>
+                             <td>Perempuan</td>
+                         </tr>
+                         <tr>
+                             <td>5</td>
+                             <td>201000991</td>
+                             <td>ANITIA PUTRI</td>
+                             <td>Perempuan</td>
+                         </tr>
+                         <tr>
+                             <td>6</td>
+                             <td>201000994</td>
+                             <td>ARI PUTRA NANDIKA</td>
+                             <td>Laki - laki</td>
+                         </tr>
+                         <tr>
+                             <td>7</td>
+                             <td>201001008</td>
+                             <td>DIA NIKA LESTARI</td>
+                             <td>Perempuan</td>
+                         </tr>
+                         <tr>
+                             <td>8</td>
+                             <td>201001013</td>
+                             <td>DIRA IRAWAN</td>
+                             <td>Perempuan</td>
+                         </tr>
+                         <tr>
+                             <td>9</td>
+                             <td>201001014</td>
+                             <td>EDI SATRIAWAN</td>
+                             <td>Laki - laki</td>
+                         </tr>
+                         <tr>
+                             <td>10</td>
+                             <td>201001015</td>
+                             <td>EDWIN ZARIBA TALIB</td>
+                             <td>Laki - laki</td>
+                         </tr>
+                         <tr>
+                             <td>11</td>
+                             <td>201001027</td>
+                             <td>FARIS MAULANA</td>
+                             <td>Laki - laki</td>
+                         </tr>
+                         <tr>
+                             <td>12</td>
+                             <td>201001028</td>
+                             <td>FARIZI SAPUTRA</td>
+                             <td>Laki - laki</td>
+                         </tr>
+                         <tr>
+                             <td>13</td>
+                             <td>201001047</td>
+                             <td>INDRING PUSPIANA RISKI</td>
+                             <td>Perempuan</td>
+                         </tr>
+                         <tr>
+                             <td>14</td>
+                             <td>201001048</td>
+                             <td>INRI YUNIARTI</td>
+                             <td>Perempuan</td>
+                         </tr>
+                         <tr>
+                             <td>15</td>
+                             <td>201001050</td>
+                             <td>INTAN LESTARI FAIRUZYA</td>
+                             <td>Perempuan</td>
+                         </tr>
+                         <tr>
+                             <td>16</td>
+                             <td>201001057</td>
+                             <td>LINGGA PUR NAMA</td>
+                             <td>Laki - laki</td>
+                         </tr>
+                         <tr>
+                             <td>17</td>
+                             <td>201001060</td>
+                             <td>M. ARYO FEBRIANTO</td>
+                             <td>Laki - laki</td>
+                         </tr>
+                         <tr>
+                             <td>18</td>
+                             <td>201001061</td>
+                             <td>M. BAYU SAPUTRA</td>
+                             <td>Laki - laki</td>
+                         </tr>
+                         <tr>
+                             <td>19</td>
+                             <td>201001063</td>
+                             <td>M. FATHAN MAULANA</td>
+                             <td>Laki - laki</td>
+                         </tr>
+                         <tr>
+                             <td>20</td>
+                             <td>201001098</td>
+                             <td>MUHAMMAD YOGI ALFARIZI</td>
+                             <td>Laki - laki</td>
+                         </tr>
+                         <tr>
+                             <td>21</td>
+                             <td>201001120</td>
+                             <td>PATIN SALSABILA</td>
+                             <td>Perempuan</td>
+                         </tr>
+                         <tr>
+                             <td>22</td>
+                             <td>201001123</td>
+                             <td>RAHAYU</td>
+                             <td>Perempuan</td>
+                         </tr>
+                         <tr>
+                             <td>23</td>
+                             <td>201001127</td>
+                             <td>RENU JULIANI</td>
+                             <td>Perempuan</td>
+                         </tr>
+                         <tr>
+                             <td>24</td>
+                             <td>201001128</td>
+                             <td>REVA FEBRIANA</td>
+                             <td>Perempuan</td>
+                         </tr>
+                         <tr>
+                             <td>25</td>
+                             <td>201001135</td>
+                             <td>RIRIN IRAWATI</td>
+                             <td>Perempuan</td>
+                         </tr>
+                         <tr>
+                             <td>26</td>
+                             <td>201001137</td>
+                             <td>RISKI SOPIAN</td>
+                             <td>Laki - laki</td>
+                         </tr>
+                         <tr>
+                             <td>27</td>
+                             <td>201001141</td>
+                             <td>RIZKI KHARISMA PUTRA</td>
+                             <td>Laki - laki</td>
+                         </tr>
+                         <tr>
+                             <td>28</td>
+                             <td>201001142</td>
+                             <td>RIZKIAN ANANDA</td>
+                             <td>Laki - laki</td>
+                         </tr>
+                         <tr>
+                             <td>29</td>
+                             <td>201001162</td>
+                             <td>WAHYU ALAUDIN</td>
+                             <td>Laki - laki</td>
+                         </tr>
+                         <tr>
+                             <td>30</td>
+                             <td>201001167</td>
+                             <td>YAZID ANSORULLAH</td>
+                             <td>Laki - laki</td>
+                         </tr>
+                         <tr>
+                             <td>31</td>
+                             <td>-</td>
+                             <td>RISNI OLIVIA</td>
+                             <td>Perempuan</td>
+                         </tr>
+                     </tbody>
+                 </table>
+             </div>
+         </div>
+
+         <!-- tombol -->
+          <div class="tombol-container" style="min-width: 100%;" width="100%">
+            <a href="" class="btn">hallo</a>
+            <a href="" class="btn">hallo</a>
+            <a href="" class="btn">hallo</a>
+          </div>
       </main>
 </body>
 </html>
