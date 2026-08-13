@@ -107,23 +107,26 @@
 
         /* tombol */
         .btn{
-            display: inline-flex;
+            flex: 1;
+            display: flex;
             justify-content: center;
             align-items: center;
 
             border: 1px solid;
             border-radius: 15px;
-            padding: 2vh 22vh;
+            padding: 2vh;
             
             background-color: black;
             color: white;
+
+            overflow-wrap: break-word;
         }
 
         .tombol-container{
             display: flex;
             flex-wrap: wrap;
             gap: 6vh;
-            margin: 2vh;
+            margin: 8vh 0;
         }
     </style>
 
@@ -351,10 +354,10 @@
          </div>
 
          <!-- tombol -->
-          <div class="tombol-container" style="min-width: 100%;" width="100%">
-            <a href="" class="btn">hallo</a>
-            <a href="" class="btn">hallo</a>
-            <a href="" class="btn">hallo</a>
+          <div class="tombol-container" style="min-width: 100%; display: flex;" width="100%" >
+            <a href="" class="btn">Delete</a>
+            <a href="" class="btn">Edit</a>
+            <a href="" class="btn">Create</a>
           </div>
       </main>
 </body>
