@@ -219,7 +219,7 @@ main {
             "<tr >" .
              "<td>" . $user['nisn'] . "</td>" .
              "<td>" . $user['nama_lengkap'] . "</td>" .
-             "<td>" . $user['id_kelas'] . "</td>" .
+             "<td>" . $user['nama_kelas'] . "</td>" .
              "</tr>";
         }
         ?>
