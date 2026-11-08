@@ -198,12 +198,9 @@ main {
         $query = "
     SELECT
         s.nisn,
-        s.nis,
         s.nama_lengkap,
-        s.jenis_kelamin,
         s.id_kelas,
         k.nama_kelas,
-        k.kompetensi_keahlian
     FROM siswa AS s
     JOIN kelas AS k ON s.id_kelas = k.id_kelas
     ORDER BY s.nama_lengkap ASC

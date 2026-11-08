@@ -241,6 +241,7 @@
                     </tr>
                 </thead>
                 <tbody>
+<<<<<<< HEAD
                         <?php
         #cara agar fungsi dari koneksi.php bisa dipakai di file ini, maka kita harus memanggilnya dengan require_once
         require_once __DIR__ . '/php/koneksi.php';
@@ -263,7 +264,31 @@
         }
         ?>
                 </tbody>
+=======
+                    <?php
+                        require_once __DIR__ . '/php/koneksi.php';
+>>>>>>> 1e92ebb (menambahkan data untuk data absensi)
 
+                        $query = "
+                        s.nisn,
+                        s.status,
+                        s.keterangan,
+                        k.nama_lengkap,
+                        FROM siswa AS k
+                        JOIN absensi_siswa AS s ON s.nisn = k.nisn
+                        ORDER BY s.id_absensi ASC
+                        ";
+
+                        $hasil = mysqli_query($koneksi , $query);
+
+                        while($row = mysqli_fetch_array($hasil)){
+                            echo 
+                            "<tr>" . 
+                            "<td>" . $row['nama_lengkap'] . "</td>" .
+                            "</tr>";
+                        }
+                    ?>
+                </tbody>
             </table>
         </div>
 
