@@ -98,6 +98,7 @@
             min-width: 140vh;
             max-height: 30vh;
             overflow-y: auto;
+            padding: 10vh ;
         }
 
 
