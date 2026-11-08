@@ -3,7 +3,7 @@
 require_once __DIR__ . '/php/koneksi.php';
 
 #buat query
-$query = "SELECT * FROM siswa";
+$query = "SELECT * FROM guru";
 $hasil = mysqli_query($koneksi , $query);
 
 if(!hasil){
