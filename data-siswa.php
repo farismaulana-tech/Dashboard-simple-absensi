@@ -185,7 +185,7 @@
              "</div>";
         }
         ?>
-        </div> rapi
+        </div>
       </main>
 </body>
 </html>
