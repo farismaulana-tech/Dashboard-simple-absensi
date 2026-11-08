@@ -157,7 +157,19 @@
         require_once __DIR__ . '/php/koneksi.php';
 
         #buat query
-        $query = "SELECT * FROM siswa";
+        $query = "
+    SELECT
+        s.nisn,
+        s.nis,
+        s.nama_lengkap,
+        s.jenis_kelamin,
+        s.id_kelas,
+        k.nama_kelas,
+        k.kompetensi_keahlian
+    FROM siswa AS s
+    JOIN kelas AS k ON s.id_kelas = k.id_kelas
+    ORDER BY s.nama_lengkap ASC
+";
         $hasil = mysqli_query($koneksi , $query);
 
         if(!$hasil){
@@ -169,7 +181,7 @@
             "<div class='baris'>" .
              "<p>" . $user['nisn'] . "</p>" .
              "<p>" . $user['nama_lengkap'] . "</p>" .
-             "<p>" . $user['id_kelas'] . "</p>" .
+             "<p>" . $user['nama_kelas'] . "</p>" .
              "</div>";
         }
         ?>

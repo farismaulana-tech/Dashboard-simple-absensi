@@ -115,6 +115,27 @@
         <hr>
 
         <!-- data -->
+         <?php
+        #cara agar fungsi dari koneksi.php bisa dipakai di file ini, maka kita harus memanggilnya dengan require_once
+        require_once __DIR__ . '/php/koneksi.php';
+
+        #buat query
+        $query = "SELECT * FROM absensi_siswa";
+        $hasil = mysqli_query($koneksi , $query);
+
+        if(!$hasil){
+            die("gagal mengambil data" . mysqli_error($koneksi));
+        }
+
+        while ($user = mysqli_fetch_assoc($hasil)) {
+            echo 
+            "<div class='baris'>" .
+             "<p>" . $user['nisn'] . "</p>" .
+             "<p>" . $user['status'] . "</p>" .
+             "<p>" . $user['keterangan'] . "</p>" .
+             "</div>";
+        }
+        ?>
       </main>
 </body>
 </html>
