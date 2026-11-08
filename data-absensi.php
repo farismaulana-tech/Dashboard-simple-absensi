@@ -1,141 +1,263 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Absensi</title>
+    <title>Data Absensi - Lunk</title>
 
-    <!-- font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <!-- style -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
-
-        /* keseluruhan */
-
-        *{
-            font-family: "Inter", sans-serif;
-            font-optical-sizing: auto;
-            font-weight: 400;
-            font-style: normal;
-            box-sizing: border-box;
-            padding: 0;
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
         }
 
-        body{
+        body {
             display: flex;
+            background: #F1F5F9;
         }
 
-        /* text */
-
-        .sidebar a{
-            color: black;
-            text-decoration: none;
-            padding: 2vh 12vh;
-            padding-left: 0;
-            border-radius: 15px;
-            background-color: white;
-            margin-left: 0;
-            display: inline-block;
-            transition: ease-out 300ms;
+        /* SIDEBAR */
+        .sidebar {
+            background-color: #172554;
+            width: 300px;
+            height: 100vh;
+            padding: 20px;
+            box-shadow: 5px 0 20px rgb(0, 0, 0);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999999;
         }
 
-        .sidebar a:hover{
-            color: white;
-            text-decoration: none;
-            padding: 2vh 12vh;
-            padding-left: 15px;
-            border-radius: 15px;
-            background-color: purple;
-            transition: ease-out 300ms;
-            
-        }
-
-
-        .tombol-sidebar{
-            list-style: none;
-            margin-top: 3vh;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            text-align: left;
-        }
-
-        .sidebar h1{
-            color: lightblue;
+        .sidebar h1 {
+            color: #60A5FA;
+            font-size: 36px;
             font-weight: 900;
         }
 
-        /* sidebar */
-        .sidebar{
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 1px 1px 1px ;
-            min-width: 20px;
-            height: 100vh;
-            min-height: 100vh;
-            width: 40vh;
-            padding: 2vh;
-            box-shadow: 1px 0px 50px 0 black;
-            flex: 1;
-            position: fixed;
-            z-index: 999999px;
+        .sidebar hr {
+            border: 1px solid white;
+            margin-top: 0;
         }
 
-        /* main */
-        main{
-            margin-left: 400px;       /* Sama dengan lebar sidebar */
+        .tombol-sidebar {
+            list-style: none;
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            text-align: left;
+            gap: 10px;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            background: transparent;
+            padding: 15px 16px;
+            width: 100%;
+            border-radius: 8px;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: white;
+            background-color: #3B82F6;
+            padding: 15px 16px;
+        }
+
+        /* MAIN */
+        main {
+            margin-left: 326px;
             padding: 20px;
+            width: calc(100% - 326px);
+        }
+
+        /* DATA ABSENSI */
+        .judul-absensi {
+            color: #172554;
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 30px;
+        }
+
+        .container-absensi {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            border: 1px solid #E2E8F0;
+            overflow-x: auto;
+        }
+
+        .filter-absensi {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .filter-absensi input {
+            padding: 12px;
+            border: 1px solid #CBD5E1;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .tabel-absensi {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 10px 12px;
+            min-width: 850px;
+        }
+
+        .tabel-absensi th {
+            background: #172554;
+            color: white;
+            padding: 15px 12px;
+            border-radius: 9px;
+            font-size: 14px;
+        }
+
+        .tabel-absensi td {
+            background: #F8FAFC;
+            color: #172554;
+            text-align: center;
+            padding: 15px 10px;
+            border: 1px solid #E2E8F0;
+            border-radius: 9px;
+            font-size: 13px;
+        }
+
+        .status-hadir {
+            color: #15803D;
+            background: #DCFCE7;
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .status-izin {
+            color: #B45309;
+            background: #FEF3C7;
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .status-sakit {
+            color: #1D4ED8;
+            background: #DBEAFE;
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .status-alpa {
+            color: #B91C1C;
+            background: #FEE2E2;
+            padding: 7px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .tombol-aksi {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .tombol-aksi button {
+            flex: 1;
+            padding: 17px;
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .btn-delete {
+            background: #DC2626;
+        }
+
+        .btn-edit {
+            background: #3B82F6;
+        }
+
+        .btn-create {
+            background: #059669;
+        }
+
+        .tombol-aksi button:hover {
+            opacity: 0.85;
         }
     </style>
-
-
 </head>
+
 <body>
-    <!-- sidebar -->
-     <div class="sidebar">
-        <div class="logo">
-            <h1>Lunk</h1>
-        </div>
-        <hr>
-        <div class="tombol-sidebar">
-                <a href="index.html">Beranda</a>
-                <a href="data-siswa.php">Data siswa</a>
-                <a href="data-absensi.php">Data absensi</a>
-        </div>
-     </div>
 
-     <!-- main -->
-      <main>
-        
-        <!-- judul -->
-        <h1>ini adalah halaman data absensi</h1>
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h1>Lunk</h1>
         <hr>
 
-        <!-- data -->
-         <?php
-        #cara agar fungsi dari koneksi.php bisa dipakai di file ini, maka kita harus memanggilnya dengan require_once
-        require_once __DIR__ . '/php/koneksi.php';
+        <ul class="tombol-sidebar">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="data-siswa.html">Data siswa</a></li>
+            <li><a href="data-absensi.html">Data absensi</a></li>
+        </ul>
+    </div>
 
-        #buat query
-        $query = "SELECT * FROM absensi_siswa";
-        $hasil = mysqli_query($koneksi , $query);
+    <!-- KONTEN DATA ABSENSI -->
+    <main>
 
-        if(!$hasil){
-            die("gagal mengambil data" . mysqli_error($koneksi));
-        }
+        <h1 class="judul-absensi">Data Absensi</h1>
 
-        while ($user = mysqli_fetch_assoc($hasil)) {
-            echo 
-            "<div class='baris'>" .
-             "<p>" . $user['nisn'] . "</p>" .
-             "<p>" . $user['status'] . "</p>" .
-             "<p>" . $user['keterangan'] . "</p>" .
-             "</div>";
-        }
-        ?>
-      </main>
+        <div class="container-absensi">
+
+            <div class="filter-absensi">
+                <input type="date" id="tanggal">
+                <input type="text" placeholder="Cari nama siswa atau NIS...">
+            </div>
+
+            <table class="tabel-absensi">
+
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>NIS</th>
+                        <th>Nama Siswa</th>
+                        <th>Kelas</th>
+                        <th>Tanggal</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <thead>
+                    
+                       
+                </thead>
+                </tbody>
+
+            </table>
+        </div>
+
+        <div class="tombol-aksi">
+            <button class="btn-delete">Delete</button>
+            <button class="btn-edit">Edit</button>
+            <button class="btn-create">Create</button>
+        </div>
+
+    </main>
+
 </body>
 </html>
