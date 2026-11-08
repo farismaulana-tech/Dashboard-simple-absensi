@@ -220,8 +220,7 @@
 
     <!-- KONTEN DATA ABSENSI -->
     <main>
-
-        <h1 class="judul-absensi">Data Absensi</h1>
+         <h1 style="margin-bottom: 5vh;">Data Absensi</h1>
 
         <div class="container-absensi">
 
