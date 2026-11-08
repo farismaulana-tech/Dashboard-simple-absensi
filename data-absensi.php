@@ -244,13 +244,14 @@
                         require_once __DIR__ . '/php/koneksi.php';
 
                         $query = "
+                        SELECT
                         s.nisn,
                         s.status,
                         s.keterangan,
-                        k.nama_lengkap,
-                        FROM siswa AS k
-                        JOIN absensi_siswa AS s ON s.nisn = k.nisn
-                        ORDER BY s.id_absensi ASC
+                        k.nama_lengkap
+                        FROM absensi_siswa AS s
+                        JOIN siswa AS k ON s.nisn = k.nisn
+                        ORDER BY k.nama_lengkap ASC
                         ";
 
                         $hasil = mysqli_query($koneksi , $query);
@@ -259,6 +260,8 @@
                             echo 
                             "<tr>" . 
                             "<td>" . $row['nama_lengkap'] . "</td>" .
+                            "<td>" . $row['keterangan'] . "</td>" .
+                            "<td>" . $row['status'] . "</td>" .
                             "</tr>";
                         }
                     ?>

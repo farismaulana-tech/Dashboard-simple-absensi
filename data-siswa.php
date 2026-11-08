@@ -200,7 +200,7 @@ main {
                         s.nisn,
                         s.nama_lengkap,
                         s.id_kelas,
-                        k.nama_kelas,
+                        k.nama_kelas
                     FROM siswa AS s
                     JOIN kelas AS k ON s.id_kelas = k.id_kelas
                     ORDER BY s.nama_lengkap ASC
