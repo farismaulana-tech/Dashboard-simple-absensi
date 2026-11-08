@@ -1,20 +1,3 @@
-<?php
-#cara agar fungsi dari koneksi.php bisa dipakai di file ini, maka kita harus memanggilnya dengan require_once
-require_once __DIR__ . '/php/koneksi.php';
-
-#buat query
-$query = "SELECT * FROM guru";
-$hasil = mysqli_query($koneksi , $query);
-
-if(!hasil){
-    die("gagal mengambil data" . mysqli_error($koneksi));
-}
-
-while ($user = mysqli_fetch_assoc($hasil)) {
-    echo $user['nama_lengkap'] . '<br>';
-}
-
-?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -103,9 +86,40 @@ while ($user = mysqli_fetch_assoc($hasil)) {
 
         /* main */
         main{
-            margin-left: 300px;       /* Sama dengan lebar sidebar */
+            margin-left: 400px;       /* Sama dengan lebar sidebar */
             padding: 20px;
         }
+
+        /* table */
+        .table{
+            border: 1px solid;
+            border-radius: 10px;
+            margin-top: 10vh;
+            min-width: 140vh;
+            max-height: 30vh;
+            overflow-y: auto;
+        }
+
+
+        .baris{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+
+        }
+
+        .baris p{
+            flex: 1;
+            border-collapse: collapse;
+            border: 1px solid;
+            border-radius: 10px;
+            padding: 2vh 0;
+            min-width: 40vh;
+            white-space: nowrap;
+        }
+
+        
     </style>
 
 
@@ -126,7 +140,39 @@ while ($user = mysqli_fetch_assoc($hasil)) {
 
      <!-- main -->
       <main>
+
+        <!-- judul -->
         <h1>ini adalah halaman data siswa</h1>
+
+        <!-- garis -->
+        <hr>
+
+        <!-- data -->
+        <div class="table">
+
+
+        <?php
+        #cara agar fungsi dari koneksi.php bisa dipakai di file ini, maka kita harus memanggilnya dengan require_once
+        require_once __DIR__ . '/php/koneksi.php';
+
+        #buat query
+        $query = "SELECT * FROM siswa";
+        $hasil = mysqli_query($koneksi , $query);
+
+        if(!$hasil){
+            die("gagal mengambil data" . mysqli_error($koneksi));
+        }
+
+        while ($user = mysqli_fetch_assoc($hasil)) {
+            echo 
+            "<div class='baris'>" .
+             "<p>" . $user['nisn'] . "</p>" .
+             "<p>" . $user['nama_lengkap'] . "</p>" .
+             "<p>" . $user['id_kelas'] . "</p>" .
+             "</div>";
+        }
+        ?>
+        </div>
       </main>
 </body>
 </html>
