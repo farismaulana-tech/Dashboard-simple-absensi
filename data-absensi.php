@@ -213,8 +213,8 @@
 
         <ul class="tombol-sidebar">
             <li><a href="index.html">Beranda</a></li>
-            <li><a href="data-siswa.html">Data siswa</a></li>
-            <li><a href="data-absensi.html">Data absensi</a></li>
+            <li><a href="data-siswa.php">Data siswa</a></li>
+            <li><a href="data-absensi.php">Data absensi</a></li>
         </ul>
     </div>
 
@@ -234,18 +234,34 @@
 
                 <thead>
                     <tr>
-                        <th>No</th>
-                        <th>NIS</th>
                         <th>Nama Siswa</th>
-                        <th>Kelas</th>
-                        <th>Tanggal</th>
                         <th>Status</th>
+                        <th>Keterangan</th>
+                        
                     </tr>
                 </thead>
-                <thead>
-                    
-                       
-                </thead>
+                <tbody>
+                        <?php
+        #cara agar fungsi dari koneksi.php bisa dipakai di file ini, maka kita harus memanggilnya dengan require_once
+        require_once __DIR__ . '/php/koneksi.php';
+
+        #buat query
+        $query = "SELECT * FROM absensi_siswa";
+        $hasil = mysqli_query($koneksi , $query);
+
+        if(!$hasil){
+            die("gagal mengambil data" . mysqli_error($koneksi));
+        }
+
+        while ($user = mysqli_fetch_assoc($hasil)) {
+            echo 
+            "<tr>" .
+             "<td>" . $user['nisn'] . "</td>" .
+             "<td>" . $user['status'] . "</td>" .
+             "<td>" . $user['keterangan'] . "</td>" .
+             "</tr>";
+        }
+        ?>
                 </tbody>
 
             </table>

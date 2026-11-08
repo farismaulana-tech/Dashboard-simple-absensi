@@ -169,8 +169,8 @@ main {
         <hr>
         <div class="tombol-sidebar">
                 <a href="index.html">Beranda</a>
-                <a href="data-siswa.html">Data siswa</a>
-                <a href="data-absensi.html">Data absensi</a>
+                <a href="data-siswa.php">Data siswa</a>
+                <a href="data-absensi.php">Data absensi</a>
         </div>
      </div>
 
