@@ -191,35 +191,35 @@ main {
                      </thead>
                      <tbody>
                         <?php
-        #cara agar fungsi dari koneksi.php bisa dipakai di file ini, maka kita harus memanggilnya dengan require_once
-        require_once __DIR__ . '/php/koneksi.php';
+                        #cara agar fungsi dari koneksi.php bisa dipakai di file ini, maka kita harus memanggilnya dengan require_once
+                        require_once __DIR__ . '/php/koneksi.php';
 
-        #buat query
-        $query = "
-    SELECT
-        s.nisn,
-        s.nama_lengkap,
-        s.id_kelas,
-        k.nama_kelas,
-    FROM siswa AS s
-    JOIN kelas AS k ON s.id_kelas = k.id_kelas
-    ORDER BY s.nama_lengkap ASC
-";
-        $hasil = mysqli_query($koneksi , $query);
+                        #buat query
+                        $query = "
+                        SELECT
+                        s.nisn,
+                        s.nama_lengkap,
+                        s.id_kelas,
+                        k.nama_kelas,
+                    FROM siswa AS s
+                    JOIN kelas AS k ON s.id_kelas = k.id_kelas
+                    ORDER BY s.nama_lengkap ASC
+                ";
+                        $hasil = mysqli_query($koneksi , $query);
 
-        if(!$hasil){
-            die("gagal mengambil data" . mysqli_error($koneksi));
-        }
+                        if(!$hasil){
+                            die("gagal mengambil data" . mysqli_error($koneksi));
+                        }
 
-        while ($user = mysqli_fetch_assoc($hasil)) {
-            echo 
-            "<tr>" .
-             "<td>" . $user['nisn'] . "</td>" .
-             "<td>" . $user['nama_lengkap'] . "</td>" .
-             "<td>" . $user['nama_kelas'] . "</td>" .
-             "</tr>";
-        }
-        ?>
+                        while ($user = mysqli_fetch_assoc($hasil)) {
+                            echo 
+                            "<tr>" .
+                            "<td>" . htmlspecialchars($user['nisn']) . "</td>" .
+                            "<td>" . $user['nama_lengkap'] . "</td>" .
+                            "<td>" . $user['nama_kelas'] . "</td>" .
+                            "</tr>";
+                        }
+                    ?>
                      </tbody>
                  </table>
              </div>
