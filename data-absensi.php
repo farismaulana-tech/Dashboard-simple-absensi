@@ -240,33 +240,8 @@
                     </tr>
                 </thead>
                 <tbody>
-<<<<<<< HEAD
-                        <?php
-        #cara agar fungsi dari koneksi.php bisa dipakai di file ini, maka kita harus memanggilnya dengan require_once
-        require_once __DIR__ . '/php/koneksi.php';
-
-        #buat query
-        $query = "SELECT * FROM absensi_siswa";
-        $hasil = mysqli_query($koneksi , $query);
-
-        if(!$hasil){
-            die("gagal mengambil data" . mysqli_error($koneksi));
-        }
-
-        while ($user = mysqli_fetch_assoc($hasil)) {
-            echo 
-            "<tr>" .
-             "<td>" . $user['nisn'] . "</td>" .
-             "<td>" . $user['status'] . "</td>" .
-             "<td>" . $user['keterangan'] . "</td>" .
-             "</tr>";
-        }
-        ?>
-                </tbody>
-=======
                     <?php
                         require_once __DIR__ . '/php/koneksi.php';
->>>>>>> 1e92ebb (menambahkan data untuk data absensi)
 
                         $query = "
                         s.nisn,

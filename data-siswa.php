@@ -213,7 +213,7 @@ main {
 
         while ($user = mysqli_fetch_assoc($hasil)) {
             echo 
-            "<tr >" .
+            "<tr>" .
              "<td>" . $user['nisn'] . "</td>" .
              "<td>" . $user['nama_lengkap'] . "</td>" .
              "<td>" . $user['nama_kelas'] . "</td>" .
